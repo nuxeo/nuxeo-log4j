@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.nuxeo</groupId>
+    <artifactId>nuxeo-parent</artifactId>
+    <version>11.2-SNAPSHOT</version>
+  </parent>
+
+  <groupId>org.nuxeo.log4j</groupId>
+  <artifactId>nuxeo-log4j-parent</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <name>Nuxeo Log4j Parent</name>
+  <description>Nuxeo Log4j Parent</description>
+  <packaging>pom</packaging>
+
+  <properties>
+    <nuxeo.base.version>10.10</nuxeo.base.version>
+    <log4j.version>2.13.0</log4j.version>
+  </properties>
+
+  <modules>
+    <module>nuxeo-log4j-core</module>
+  </modules>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.nuxeo.log4j</groupId>
+        <artifactId>nuxeo-lo4j-core</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-core</artifactId>
+        <version>${log4j.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <repositories>
+    <repository>
+      <id>maven-public</id>
+      <url>https://packages.nuxeo.com/repository/maven-public</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>always</updatePolicy>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>nuxeo-studio</id>
+      <url>https://connect.nuxeo.com/nuxeo/site/studio/maven</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <updatePolicy>always</updatePolicy>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>maven-internal</id>
+      <url>https://packages.nuxeo.com/repository/maven-internal</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>always</updatePolicy>
+      </snapshots>
+    </repository>
+  </repositories>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>maven-public</id>
+      <url>https://packages.nuxeo.com/repository/maven-public</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>always</updatePolicy>
+      </snapshots>
+    </pluginRepository>
+    <pluginRepository>
+      <id>maven-internal</id>
+      <url>https://packages.nuxeo.com/repository/maven-internal</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>always</updatePolicy>
+      </snapshots>
+    </pluginRepository>
+  </pluginRepositories>
+
+  <scm>
+    <connection>scm:git:git://github.com/nuxeo/nuxeo-log4j.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com:nuxeo/nuxeo-log4j.git</developerConnection>
+  </scm>
+
+  <distributionManagement>
+    <repository>
+      <id>maven-private-releases</id>
+      <url>https://packages.nuxeo.com/repository/maven-private-releases/</url>
+    </repository>
+    <snapshotRepository>
+      <id>maven-private-snapshots</id>
+      <url>https://packages.nuxeo.com/repository/maven-private-snapshots/</url>
+      <uniqueVersion>true</uniqueVersion>
+    </snapshotRepository>
+  </distributionManagement>
+
+</project>

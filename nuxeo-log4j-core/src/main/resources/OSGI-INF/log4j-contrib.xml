@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<component name="org.nuxeo.activate.log4j.service.Log4jComponent" version="1.0">
+  <implementation class="org.nuxeo.log4j.Log4jComponent"/>
+  <service>
+    <provide interface="org.nuxeo.log4j.Log4jComponent"/>
+  </service>
+  <extension-point name="log4j">
+    <documentation>
+      Adds log4j loggers
+      Example:
+      <code>
+        <extension target="org.nuxeo.activate.log4j.service.Log4jComponent" point="log4j">
+          <log4j name="ai-core">
+            <loggers>
+              <Logger name="org.nuxeo.ai.cloud" level="DEBUG"/>
+              <Logger name="org.nuxeo.ai" level="INFO"/>
+            </loggers>
+          </log4j>
+        </extension>
+      </code>
+    </documentation>
+    <object class="org.nuxeo.log4j.Log4jDescriptor"/>
+    <object class="org.nuxeo.log4j.Log4jDescriptor$Logger"/>
+  </extension-point>
+</component>
