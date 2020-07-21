@@ -26,7 +26,7 @@ String getMavenArgs() {
 
 pipeline {
     agent {
-        label "jenkins-ai-nuxeo1010"
+        label "jenkins-ai-nuxeo11"
     }
     options {
         disableConcurrentBuilds()
@@ -46,10 +46,9 @@ pipeline {
             }
             steps {
                 setGitHubBuildStatus('build')
-                container('nuxeo1010') {
-                        sh 'mvn ${MAVEN_ARGS}'
-                        sh "find . -name '*-reports' -type d"
-                    }
+                container('platform11') {
+                    sh 'mvn ${MAVEN_ARGS}'
+                    sh "find . -name '*-reports' -type d"
                 }
             }
             post {
@@ -66,7 +65,7 @@ pipeline {
     post {
         always {
             script {
-                if (env.BRANCH_NAME == 'master' || env.TAG_NAME || env.BRANCH_NAME ==~ 'Sprint-.*') {
+                if (env.BRANCH_NAME == 'master') {
                     step([$class: 'JiraIssueUpdater', issueSelector: [$class: 'DefaultIssueSelector'], scm: scm])
                 }
             }
