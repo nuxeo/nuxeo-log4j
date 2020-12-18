@@ -49,7 +49,6 @@ pipeline {
                 container('nuxeo1010') {
                         sh 'mvn ${MAVEN_ARGS}'
                         sh "find . -name '*-reports' -type d"
-                    }
                 }
             }
             post {
