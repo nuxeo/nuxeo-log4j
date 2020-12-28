@@ -3,20 +3,20 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>org.nuxeo</groupId>
-    <artifactId>nuxeo-parent</artifactId>
-    <version>11.4</version>
+    <groupId>org.nuxeo.ecm.distribution</groupId>
+    <artifactId>nuxeo-distribution</artifactId>
+    <version>10.10-HF33</version>
   </parent>
 
   <groupId>org.nuxeo.log4j</groupId>
   <artifactId>nuxeo-log4j-parent</artifactId>
-  <version>1.1.0-SNAPSHOT</version>
+  <version>0.1.0-SNAPSHOT</version>
   <name>Nuxeo Log4j Parent</name>
   <description>Nuxeo Log4j Parent</description>
   <packaging>pom</packaging>
 
   <properties>
-    <nuxeo.base.version>10.10</nuxeo.base.version>
+    <nuxeo.base.version>10.10-HF33</nuxeo.base.version>
     <log4j.version>2.13.2</log4j.version>
   </properties>
 
