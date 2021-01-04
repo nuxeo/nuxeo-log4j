@@ -26,7 +26,7 @@ String getMavenArgs() {
 
 pipeline {
     agent {
-        label "jenkins-ai-nuxeo11"
+        label "jenkins-ai-nuxeo1010"
     }
     options {
         disableConcurrentBuilds()
@@ -42,11 +42,10 @@ pipeline {
             environment {
                 MAVEN_OPTS = "$MAVEN_OPTS -Xms512m -Xmx1g"
                 MAVEN_ARGS = getMavenArgs()
-                AWS_REGION = "us-east-1"
             }
             steps {
                 setGitHubBuildStatus('build')
-                container('platform11') {
+                container('platform1010') {
                     sh 'mvn ${MAVEN_ARGS}'
                     sh "find . -name '*-reports' -type d"
                 }
@@ -65,7 +64,7 @@ pipeline {
     post {
         always {
             script {
-                if (env.BRANCH_NAME == 'master') {
+                if (env.BRANCH_NAME ==~ 'master.*' || env.TAG_NAME) {
                     step([$class: 'JiraIssueUpdater', issueSelector: [$class: 'DefaultIssueSelector'], scm: scm])
                 }
             }
