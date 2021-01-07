@@ -45,7 +45,7 @@ pipeline {
             }
             steps {
                 setGitHubBuildStatus('build')
-                container('platform1010') {
+                container('nuxeo1010') {
                     sh 'mvn ${MAVEN_ARGS}'
                     sh "find . -name '*-reports' -type d"
                 }
