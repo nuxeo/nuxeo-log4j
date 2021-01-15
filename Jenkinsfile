@@ -17,9 +17,14 @@ void setGitHubBuildStatus(String context) {
 }
 
 String getMavenArgs() {
-    def args = '-V -B clean install'
-    if (env.TAG_NAME) {
-        args += ' -Prelease deploy -DskipTests'
+    def args = '-V -B -PJX'
+    if (env.TAG_NAME || env.BRANCH_NAME ==~ 'master.*') {
+        args += ' deploy -P-nexus'
+        if (env.TAG_NAME) {
+            args += ' -Prelease -DskipTests'
+        }
+    } else {
+        args += ' install'
     }
     return args
 }
