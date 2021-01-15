@@ -10,7 +10,7 @@
 
   <groupId>org.nuxeo.log4j</groupId>
   <artifactId>nuxeo-log4j-parent</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2-SNAPSHOT</version>
   <name>Nuxeo Log4j Parent</name>
   <description>Nuxeo Log4j Parent</description>
   <packaging>pom</packaging>
